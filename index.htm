@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campo Minato</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="app-wrapper">
+        <!-- HEADER -->
+        <header>
+            <div class="ms_container">
+                <div class="logo_and_title">
+                    Campo Minato: la Griglia
+                </div>
+                <div class="play_game">
+                    <label for="game_difficult">Difficoltà: </label> 
+                    <select class="header_btn" id="game_difficult">
+                        <option value="1">Easy</option>
+                        <option value="2">Hard</option>
+                        <option value="3">Crazy</option>
+                    </select>
+                    <button id="play_button" class="header_btn">Play</button>
+                </div>
+            </div>
+        </header>
+        <!-- END HEADER -->
+        <!-- MAIN -->
+        <main>
+            <div class="main_container">
+                <h2 id="title">Seleziona il livello di difficoltà e genera la griglia</h2>
+                <div id="grid" class="my_grid hidden">
+                    <!-- single square -->
+                    <!-- <div class="square">
+                        1
+                    </div> -->
+                </div>
+                <h2 class="hidden" id="game_result"></h2>
+            </div>
+        </main>
+        <!-- END MAIN -->
+        <!-- FOOTER -->
+        <footer>
+            <div class="ms_container">
+                <div class="author">
+                    Made with <i class="fas fa-heart"></i> by <a href="#">Boolean</a>
+                </div>
+            </div>
+        </footer>
+        <!-- END FOOTER -->
+    </div>
+    
+
+
+
+
+
+
+
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
