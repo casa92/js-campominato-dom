@@ -17,33 +17,13 @@
 
 
 // let bombNumberContainer = [];
-let numberOfBombs = 15;
+let numberOfBombs = 0;
 
 const playButton = document.getElementById('play_button')
 
 
 playButton.addEventListener('click', playThisDifficulty);
     
-// let myGrid = document.getElementById('grid');
-// myGrid.innerHTML = '';
-
-
-// let thisDifficult = squareNumbersGenerator(gameDifficult);
-
-// for(let i = 0; i < thisDifficult.length; i++) {
-//     const thisNumber = thisDifficult[i];
-//     const newSquareGenerated = itemGenerator(thisNumber);
-
-//     newSquareGenerated.addEventListener('click', squareOnClick);
-
-//     myGrid.appendChild(newSquareGenerated);
-// }
-
-
-
-
-
-
 
 //FUNCTIONS CALL BACK
 
@@ -63,12 +43,15 @@ function playThisDifficulty () {
     if ( gameDifficult === 1 ) {
         maxGridNumber = 100;
         gridDimension = 10;
+        numberOfBombs = 15;
     } else if ( gameDifficult === 2 ) {
         maxGridNumber = 81;
         gridDimension = 9;
+        numberOfBombs = 20;
     } else if ( gameDifficult === 3 ) {
         maxGridNumber = 49;
         gridDimension = 7;
+        numberOfBombs = 24;
     }
 
     // let thisDifficult = squareNumbersGenerator(gameDifficult);
@@ -84,6 +67,9 @@ function playThisDifficulty () {
 
 
     console.log(bombsArray);
+   
+
+    
 
     for( let i = 1; i <= maxGridNumber; i++ ) {
         
@@ -105,7 +91,6 @@ function playThisDifficulty () {
 
         //leggo numero nello square e lo converto in numero
         const clickedSquare = parseInt( this.querySelector('span').textContent );
-        console.log(clickedSquare)
         
         //se l'array di bombe contiene il numero dello square selezionato
         //il gioco finisce
@@ -126,7 +111,6 @@ function playThisDifficulty () {
             }
 
         }
-
     }
 
     function endGame(winOrLose) {
@@ -141,15 +125,19 @@ function playThisDifficulty () {
         finalMessageContainer.classList.remove('hidden');
 
         const allSquare = document.getElementsByClassName('square');
-
+        
         for (let i = 0; i < allSquare.length; i++) {
+
             const thisSquare = allSquare[i];
             thisSquare.style.pointerEvents = "none";
 
-            if ( gameResult !== 'hai vinto') {
-                bombsArray.classList.add('bomb');
+            let thisSquareNumber = parseInt( thisSquare.querySelector('span').textContent );
+
+            if (  bombsArray.includes(thisSquareNumber)) {
+            thisSquare.classList.add('bomb');
             }
         }
+
     }
 }
 
@@ -177,35 +165,20 @@ function bombGenerator (maxNumberGenerated, bombsHidden) {
             bombsArray.push(thisNumber);
         }
     }
-    
+
     return bombsArray;
 }
 
-// let prova2 = bombGenerator(16, 16);
-
-// console.log(prova2);
 
 
 
 
+///////////////////////////////////////////////////////////////////////////////////
 
 
 
 
 
-
-
-
-
-
-
-
-// function itemGenerator (number) {
-//     const newSquare = document.createElement('div');
-//     newSquare.classList.add('square')
-//     newSquare.innerHTML = `<span>${number}</span>`;
-//     return newSquare;
-// }
 
 function itemGenerator(number, numberOfCell) {
     const newSquare = document.createElement('div');
